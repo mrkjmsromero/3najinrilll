@@ -1,0 +1,273 @@
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", Arial, sans-serif;
+        background:
+            radial-gradient(circle at 15% 20%, #ffffffaa 0 2px, transparent 3px),
+            radial-gradient(circle at 80% 15%, #ffffff99 0 2px, transparent 3px),
+            radial-gradient(circle at 70% 80%, #ffffff99 0 2px, transparent 3px),
+            linear-gradient(135deg, #dff3ff, #a8d8ff, #c7e9ff);
+        background-size: 120px 120px, 150px 150px, 180px 180px, cover;
+        color: #24527a;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    /* floating decorations */
+    body::before {
+        content: "♡   ✦        ˚₊‧   ✧        ♡";
+        position: fixed;
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        color: #ffffffaa;
+        font-size: 20px;
+        letter-spacing: 5px;
+        pointer-events: none;
+    }
+
+    body::after {
+        content: "✧     ♡       ✦     ♡";
+        position: fixed;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        color: #ffffff99;
+        font-size: 18px;
+        letter-spacing: 8px;
+        pointer-events: none;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 420px;
+        padding: 35px 28px 30px;
+        text-align: center;
+
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 28px;
+
+        box-shadow:
+            0 20px 50px rgba(45, 125, 180, 0.22),
+            inset 0 1px 0 rgba(255,255,255,0.8);
+
+        backdrop-filter: blur(14px);
+
+        position: relative;
+        overflow: hidden;
+
+        animation: appear 0.8s ease;
+    }
+
+    /* soft blue glow inside card */
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background: #8dd8ff;
+        opacity: 0.12;
+        border-radius: 50%;
+        top: -80px;
+        left: -70px;
+        filter: blur(10px);
+    }
+
+    .card::after {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: #6ebbea;
+        opacity: 0.10;
+        border-radius: 50%;
+        bottom: -80px;
+        right: -60px;
+        filter: blur(10px);
+    }
+
+    .top-decoration {
+        color: #65add5;
+        font-size: 18px;
+        letter-spacing: 7px;
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 30px;
+        margin-bottom: 14px;
+        color: #2471a3;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* little line under title */
+    .line {
+        width: 70px;
+        height: 3px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            #79bee2,
+            transparent
+        );
+        margin: 0 auto 20px;
+        border-radius: 50%;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #456b87;
+        position: relative;
+        z-index: 2;
+    }
+
+    .heart {
+        font-size: 32px;
+        margin-top: 20px;
+        color: #4d9dcc;
+        animation: heartbeat 1.8s infinite ease-in-out;
+        position: relative;
+        z-index: 2;
+    }
+
+    .small {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #6d9bbb;
+        position: relative;
+        z-index: 2;
+    }
+
+    .bottom-decoration {
+        margin-top: 18px;
+        color: #80bad8;
+        font-size: 13px;
+        letter-spacing: 5px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* tiny sparkles */
+    .sparkle {
+        position: absolute;
+        color: #ffffff;
+        opacity: 0.8;
+        animation: float 3s infinite ease-in-out;
+        pointer-events: none;
+    }
+
+    .s1 {
+        top: 75px;
+        left: 18px;
+        font-size: 14px;
+    }
+
+    .s2 {
+        top: 105px;
+        right: 18px;
+        font-size: 11px;
+        animation-delay: 0.8s;
+    }
+
+    .s3 {
+        bottom: 65px;
+        left: 22px;
+        font-size: 12px;
+        animation-delay: 1.2s;
+    }
+
+    .s4 {
+        bottom: 90px;
+        right: 20px;
+        font-size: 15px;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(15px) scale(0.97);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.12);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-7px);
+        }
+    }
+</style>
+
+<div class="card">
+
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">✧</div>
+    <div class="sparkle s3">⋆</div>
+    <div class="sparkle s4">✦</div>
+
+    <div class="top-decoration">
+        ˚₊‧♡‧₊˚
+    </div>
+
+    <h1>hello po nars... sana po okay lang po kau po </h1>
+
+    <div class="line"></div>
+
+    <p>
+       di ko po kau sasakalin mwhehehehe xoriii
+        <br><br>
+       sana ayain mo pa rin me mag discord at kwentuhan mo pa rin ako,,, un lg po 
+        <br><br>
+        tenks bff 
+    </p>
+
+    <div class="heart">
+        ♡
+    </div>
+
+    <div class="small">
+       - tukmol 🫶🏻
+    </div>
+
+    <div class="bottom-decoration">
+        ✦ · · · ♡ · · · ✦
+    </div>
+
+</div>
